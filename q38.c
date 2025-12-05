@@ -1,21 +1,39 @@
-//Write a program to find the sum of digits of a number.
-
+// pattern eg 3 : *
+//               * * *
+//              * * * * *
+//                * * *
+//                 *
 #include <stdio.h>
-
-int main() {
-    int n, sum = 0, digit;
-
-    printf("Enter a number: ");
+int main(){
+    int n, i, j, space;
+    printf("Enter any integer: ");
     scanf("%d", &n);
-
-    while (n > 0) {
-        digit = n % 10;   
-        sum += digit;     
-        n = n / 10; 
+    
+    
+    for(i = 1; i <= n; i++){
+        
+        for(space = i; space < n; space++){
+            printf(" ");
+        }
+        // Print stars
+        for(j = 1; j <= 2*i - 1; j++){
+            printf("*");
+        }
+        printf("\n");
     }
-
-    printf("Sum of digits = %d\n", sum);
-
+    
+    // Lower half of the pattern
+    for(i = n-1; i >= 1; i--){
+        // Print leading spaces
+        for(space = n; space > i; space--){
+            printf(" ");
+        }
+        // Print stars
+        for(j = 1; j <= 2*i - 1; j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    
     return 0;
 }
-
